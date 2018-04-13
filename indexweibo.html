@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript" charset="utf-8">
+        var ws=null,nw=null;
+        function plusReady(){
+            ws=plus.webview.currentWebview();
+            nw=plus.webview.create("http://weibo.com/dhnetwork");
+            ws.append(nw);
+            plus.key.addEventListener("backbutton",function(){
+                //查询Webview窗口是否可后退
+                nw.canBack( function(e){
+                    var canback=e.canBack;
+                    if(canback){
+                        nw.back();
+                    }else{
+                        back();
+                    }
+                });
+            });
+        }
+        
+        var first = null;
+        var back = function() {
+            if (!first) {
+                first = (new Date()).getTime();
+                plus.nativeUI.toast('再按一次退出应用');
+                setTimeout(function() {
+                    first = null;
+                }, 1000);
+            } else {
+                if ((new Date()).getTime() - first < 1000) {
+                    plus.runtime.quit();
+                }
+            }
+        }
+        
+        if(window.plus){
+            plusReady();
+        }else{
+            document.addEventListener("plusready",plusReady,false);
+        }
+    </script>
+</body>
+</html>

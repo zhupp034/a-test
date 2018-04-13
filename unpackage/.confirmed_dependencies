@@ -8,5 +8,10 @@
 			"html/message.html",
 			"html/home.html"
 		]
+	},
+	"html/home.html": {
+		"refer": [
+			"html/music.html"
+		]
 	}
 }

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+</head>
+<body>
+    <script src="js/mui.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+          mui.init();
+          
+          var ws=null,nw=null;
+          mui.plusReady(function () {
+              ws=plus.webview.currentWebview();
+            nw=plus.webview.create("https://www.baidu.com/");
+            ws.append(nw);
+          });
+          
+          var _back = mui.back;
+          mui.back = function(){
+              //查询Webview窗口是否可后退
+            nw.canBack( function(e){
+                var canback=e.canBack;
+                if(canback){
+                    nw.back();
+                }else{
+                    _back();
+                }
+            });
+          }
+    </script>
+</body>
+</html>

@@ -3,10 +3,20 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+		<link href="../css/mui.min.css" rel="stylesheet"/>
 	</head>
 	<body>
 		<div class="mui-content">
-		    2
+		    123
 		</div>
+		<script src="../js/mui.min.js"></script>
+    	<script type="text/javascript">
+        mui.init();
+        mui.plusReady(function() {
+        	var ws = plus.webview.currentWebview()
+   			console.log(ws.id)
+        })
+        
+    </script>
 	</body>
 </html>

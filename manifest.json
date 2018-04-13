@@ -137,6 +137,13 @@
 					"html/message.html"
 				],
 				"priority": 0
+			},
+			"html/home.html": {
+				"resources": [],
+				"refer": [
+					"html/music.html"
+				],
+				"priority": 0
 			}
 		},
 		"idle": {
