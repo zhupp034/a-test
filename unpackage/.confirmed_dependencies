@@ -1,0 +1,12 @@
+{
+	"index.html": {
+		"resources": [
+			"html/home.html"
+		],
+		"refer": [
+			"html/setting.html",
+			"html/message.html",
+			"html/home.html"
+		]
+	}
+}
